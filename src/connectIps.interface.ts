@@ -54,7 +54,6 @@ export interface ConnectIpsOptions {
     paymentUrl?: string;
     validateUrlTest?: string;
     validateUrl?: string;
-    validateUrlMobile?: string;
     paymentMode: PaymentMode;
 
 }
