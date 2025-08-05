@@ -44,7 +44,7 @@ export class YourService {
     
     async initPayment(){
         //...your code
-        const esewaRequestDto: EsewaRequestDto = {
+        const connectIpsRequestDto: ConnectIpsRequestDto = {
             transactionId:'transactionId-1',
             //in paisa
             transactionAmount: 10,
@@ -54,7 +54,7 @@ export class YourService {
             remarks: "remarks",
             particulars: "particulars",
         };
-        const initData = await this.connectIpsService.init(esewaRequestDto);
+        const initData = await this.connectIpsService.init(connectIpsRequestDto);
         //...use initData where required as use case
     
   }

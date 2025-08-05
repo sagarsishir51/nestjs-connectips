@@ -61,7 +61,7 @@ export interface ConnectIpsOptions {
 export interface ConnectIpsResponseDto {
     transactionId: string;
     transactionAmount: string;
-    status: number;
+    status: string;
 }
 
 export interface ConnectIpsValidateRequestDto {

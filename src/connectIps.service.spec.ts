@@ -23,8 +23,8 @@ describe('ConnectIpsService', () => {
     it('should init data', async () => {
         //use own set of data to test
         const requestDto:ConnectIpsRequestDto = {
-            transactionId:'transactionId-1',
-            transactionAmount: 10,
+            transactionId:'transactionId-2',
+            transactionAmount: 1000,
             transactionDate: '2020-10-11',
             transactionCurrency: 'NPR',
             referenceId: 'referenceId',
@@ -33,6 +33,7 @@ describe('ConnectIpsService', () => {
         }
 
         const data = connectIpsService.init(requestDto);
+        console.log("data",data)
         expect(data).toBeDefined();
         expect(data).toHaveProperty("MERCHANTID")
         expect(data).toHaveProperty("APPID")
@@ -52,9 +53,10 @@ describe('ConnectIpsService', () => {
     it('should validate data', async () => {
         //use own set of data to test
         const data = await connectIpsService.validate({
-            transactionAmount:100,
-            transactionId:"transactionId-1"
+            transactionAmount:10,
+            transactionId:"transactionId-2"
         });
+        console.log("data",data)
         expect(data).toBeDefined();
         expect(data).toHaveProperty("status")
         expect(data).toHaveProperty("transactionId")
