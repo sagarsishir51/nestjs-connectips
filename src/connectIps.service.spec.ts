@@ -1,5 +1,5 @@
 import {ConnectIpsService} from "./connectIps.service";
-import {ConnectIpsOptions, ConnectIpsRequestDto, PaymentMode} from "./connectIps.interface";
+import {ConnectIpsOptions, ConnectIpsRequestDto, PaymentMode,CONNECT_IPS_STATUS} from "./connectIps.interface";
 import {HttpService} from "@nestjs/axios";
 // Load environment variables first
 import { loadEnv } from "./loadEnv";
@@ -61,5 +61,6 @@ describe('ConnectIpsService', () => {
         expect(data).toHaveProperty("status")
         expect(data).toHaveProperty("transactionId")
         expect(data).toHaveProperty("transactionAmount")
+        expect(data?.status).toEqual(CONNECT_IPS_STATUS.SUCCESS)
     });
 })

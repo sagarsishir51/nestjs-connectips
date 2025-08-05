@@ -1,6 +1,6 @@
 {
   "name": "nestjs-connectips",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This is simple wrapper for ConnectIPS Payment  @nestjs-connectips. Just ping us or open pull request and contribute :)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

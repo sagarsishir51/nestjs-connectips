@@ -11,6 +11,12 @@ export enum PaymentMode {
     LIVE = 'LIVE',
 }
 
+export enum CONNECT_IPS_STATUS {
+    SUCCESS = "SUCCESS",
+    FAILED = "FAILED",
+    ERROR = "ERROR"
+}
+
 export interface ConnectIpsRequestDto {
     //Transaction amount in paisa.
     transactionAmount: number;
