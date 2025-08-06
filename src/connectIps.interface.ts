@@ -65,7 +65,7 @@ export interface ConnectIpsOptions {
 }
 
 export interface ConnectIpsResponseDto {
-    transactionId: string;
+    referenceId: string;
     transactionAmount: string;
     status: string;
 }

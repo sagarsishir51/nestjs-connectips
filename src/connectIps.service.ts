@@ -107,17 +107,17 @@ export class ConnectIpsService {
     }
 
     async validate(data: any):Promise<ConnectIpsResponseDto> {
-        const {transactionAmount,transactionId} = data;
+        const {transactionAmount,referenceId} = data;
         if (!transactionAmount) {
             throw new BadRequestException('Transaction Amount is missing for validating connectips payment');
         }
-        if (!transactionId) {
-            throw new BadRequestException('Transaction Id is missing for validating connectips payment');
+        if (!referenceId) {
+            throw new BadRequestException('Reference Id is missing for validating connectips payment');
         }
         const connectIpsDataForMessage = {
             "MERCHANTID": this.merchantId,
             "APPID": this.appId,
-            "REFERENCEID":transactionId,
+            "REFERENCEID":referenceId,
             "TXNAMT": transactionAmount
         }
         const fieldNameString = "MERCHANTID,APPID,REFERENCEID,TXNAMT"
@@ -146,7 +146,7 @@ export class ConnectIpsService {
             );
             if (response?.status == 200 && response.data) {
                 return {
-                    transactionId: response?.data?.referenceId,
+                    referenceId: response?.data?.referenceId,
                     transactionAmount: response?.data?.txnAmt,
                     status: response?.data?.status,
                 }

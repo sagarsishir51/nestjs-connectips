@@ -54,12 +54,12 @@ describe('ConnectIpsService', () => {
         //use own set of data to test
         const data = await connectIpsService.validate({
             transactionAmount:10,
-            transactionId:"transactionId-2"
+            referenceId:"transactionId-2"
         });
         console.log("data",data)
         expect(data).toBeDefined();
         expect(data).toHaveProperty("status")
-        expect(data).toHaveProperty("transactionId")
+        expect(data).toHaveProperty("referenceId")
         expect(data).toHaveProperty("transactionAmount")
         expect(data?.status).toEqual(CONNECT_IPS_STATUS.SUCCESS)
     });

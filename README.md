@@ -72,8 +72,8 @@ export class YourService {
     
     async verifyPayment(data){
         //...your code
-        const {transactionAmount,transactionId} = data;
-        const response = await this.connectIpsService.validate({transactionAmount,transactionId});
+        const {transactionAmount,referenceId} = data;
+        const response = await this.connectIpsService.validate({transactionAmount,referenceId});
         //..your code can verify the response data with your business logic and response format
   }
 }
