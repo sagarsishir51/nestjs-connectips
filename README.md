@@ -73,7 +73,10 @@ export class YourService {
     async verifyPayment(data){
         //...your code
         const {transactionAmount,referenceId} = data;
-        const response = await this.connectIpsService.validate({transactionAmount,referenceId});
+        const connectIpsResponseDto = await this.connectIpsService.validate({transactionAmount,referenceId});
+        if(connectIpsResponseDto?.status?.localeCompare(CONNECT_IPS_STATUS.SUCCESS)!==0){
+            throw new InternalServerErrorException("Error in connect ips payment validation. Please contact admin")
+        }
         //..your code can verify the response data with your business logic and response format
   }
 }
